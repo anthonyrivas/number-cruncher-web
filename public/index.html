@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Cruncher</title>
+</head>
+<body>
+  <h1 id="message">Press any number key 1 - 5 to play</h1>
+  <h2>Wins: <span id="wins">0</span></h2>
+  <h2>Losses: <span id="losses">0</span></h2>
+  <script>
+    document.addEventListener('keyup', function(event) {
+      const chosen = event.key;
+      if ('12345'.split('').includes(chosen)) {
+        const num = parseInt(chosen);
+        fetch('/guess', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({guess: num})
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          document.querySelector('#message').textContent = data.message;
+          document.querySelector('#wins').textContent = data.wins;
+          document.querySelector('#losses').textContent = data.losses;
+        })
+      }
+    })
+  </script>
+</body>
+</html>

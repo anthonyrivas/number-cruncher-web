@@ -1,0 +1,27 @@
+{
+  "name": "number-cruncher-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonyrivas/number-cruncher-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonyrivas/number-cruncher-web/issues"
+  },
+  "homepage": "https://github.com/anthonyrivas/number-cruncher-web#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
